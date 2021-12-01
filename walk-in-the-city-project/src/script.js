@@ -8,7 +8,7 @@ const scene = new THREE.Scene();
 const listener = new THREE.AudioListener();
 const sound = new THREE.Audio( listener );
 const audioLoader = new THREE.AudioLoader();
-audioLoader.load( 'sounds/UnderTheLindenTree.mp3', function( buffer ) {
+audioLoader.load( 'sounds/edited.mp3', function( buffer ) {
     sound.setBuffer( buffer );
     sound.setLoop( false );
     sound.setVolume( 0.5 );
@@ -56,20 +56,13 @@ let audioPrevTime;
 let audioCurrentTime;
 let pause = 0;
 
+open("https://goo.gl/maps/QuqG1qcRTfb1dakP7");
+
 
 const tick = () =>
 {
 
     const elapsedTime = clock.getElapsedTime()
-
-    if (pause == 0){
-        audioCurrentTime = sound.context.currentTime - sound.startTime + audioPrevTime;
-        if (audioCurrentTime >= sound.buffer.duration){
-            console.log('end song');
-        }
-    } else if (pause == 1){
-        audioPrevTime = audioCurrentTime;
-    }
 
     // Render
     renderer.render(scene, camera);
